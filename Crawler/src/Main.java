@@ -33,6 +33,7 @@ public class Main {
 
             //get useful information
             Document doc = Jsoup.connect(URL).get();
+            //put wanted parameter for contains for term wanted within the search e.g "books".
             if (doc.text().contains("")){
                 System.out.println(URL);
             }
@@ -40,6 +41,7 @@ public class Main {
             //get all links and recursively call the processPage method
             Elements questions = doc.select("a[href]");
             for (Element link: questions){
+                //put wanted parameter in contains for specific links wanted e.g "dal.ca"
                 if(link.attr("href").contains(""))
                     processPage(link.attr("abs:href"));
 
